@@ -1,0 +1,8 @@
+{
+	"background_color": "#ffffff",
+	"theme_color": "#333333",
+	"name": "DSM-Github_Ranking",
+	"short_name": "DSMGR",
+	"display": "minimal-ui",
+	"start_url": "/"
+}
