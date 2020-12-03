@@ -10,11 +10,6 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
-import sass from 'node-sass';
-import postcss from 'postcss';
-import cssnano from 'cssnano';
-import fs from 'fs';
-
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -44,32 +39,6 @@ const preprocess = sveltePreprocess({
     ],
   },
 });
-
-sass.render(
-  {
-    file: './src/styles/global.scss',
-    indentedSyntax: true,
-    outFile: './static/global.css',
-  },
-  function (error, result) {
-    if (!error) {
-      postcss([cssnano])
-        .process(result.css, {
-          from: './static/global.css',
-          to: './static/global.css',
-        })
-        .then((result) =>
-          fs.writeFile('./static/global.css', result.css, function (err) {
-            if (err) {
-              console.log(err);
-            }
-          })
-        );
-    } else {
-      console.log(error);
-    }
-  }
-);
 
 export default {
   client: {
