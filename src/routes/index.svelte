@@ -53,6 +53,10 @@
   :global(.align-center) {
     align-items: center;
   }
+
+  :global(.cursor-pointer) {
+    cursor: pointer;
+  }
 </style>
 
 <svelte:head>
