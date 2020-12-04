@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Header from '../pages/header/index.svelte';
+  import { Header, Navigation } from '../pages';
 </script>
 
 <style lang="scss">
@@ -30,6 +30,26 @@
       width: 95%;
     }
   }
+
+  :global(.flex) {
+    display: flex;
+  }
+
+  :global(.flex-column) {
+    flex-direction: column;
+  }
+
+  :global(.justify-center) {
+    justify-content: center;
+  }
+
+  :global(.justify-space_between) {
+    justify-content: space-between;
+  }
+
+  :global(.align-center) {
+    align-items: center;
+  }
 </style>
 
 <svelte:head>
@@ -37,3 +57,4 @@
 </svelte:head>
 
 <Header />
+<Navigation />
