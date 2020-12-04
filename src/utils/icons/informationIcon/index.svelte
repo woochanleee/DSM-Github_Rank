@@ -1,9 +1,14 @@
 <script lang="ts">
-  export let className: string;
+  import { modal } from '../../../data';
+
+  function onClickInformation() {
+    modal.changeCurrentModal('information');
+  }
 </script>
 
 <svg
-  class="cursor-pointer {className}"
+  {...$$props}
+  on:click={onClickInformation}
   stroke="currentColor"
   fill="currentColor"
   stroke-width="0"
