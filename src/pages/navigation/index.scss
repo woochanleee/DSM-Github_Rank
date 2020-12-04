@@ -1,0 +1,16 @@
+@import '../../styles/theme.scss';
+
+.navigation {
+  &--tab {
+    height: 2.05rem;
+    background-color: #e2e2e2;
+    outline: none;
+    border: none;
+    color: #ffffff;
+    padding: 0.35rem 2.125rem;
+
+    &.selected {
+      background-color: $main-color;
+    }
+  }
+}
