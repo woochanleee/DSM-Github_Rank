@@ -2,7 +2,7 @@
 </script>
 
 <style lang="scss">
-  @import './index.scss';
+  @import './style/index';
 </style>
 
 <header class="header">
