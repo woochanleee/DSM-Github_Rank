@@ -1,0 +1,27 @@
+@import '../../../utils/styles/theme.scss';
+
+.modal {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #ffffff;
+    border-radius: 3px;
+    padding: 60px 80px;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+  }
+
+  &--title {
+    font-size: 1.125rem;
+    margin-bottom: 2.25rem;
+    color: $main-color;
+  }
+}
