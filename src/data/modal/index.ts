@@ -1,6 +1,6 @@
 import Store from '../store';
 
-export type CurrentModal = 'information' | '';
+export type CurrentModal = 'information' | 'register' | '';
 
 const initialState: CurrentModal = '';
 
