@@ -1,9 +1,15 @@
 <script lang="ts">
-  import { InformationIcon } from '../../utils/icons';
+  import { InformationIcon, RegisterIcon } from '../../utils/icons';
 </script>
 
 <style lang="scss">
   @import './style/index';
+
+  :global(.navigation__etc) {
+    & + & {
+      margin-left: 0.5rem;
+    }
+  }
 </style>
 
 <div class="navigation">
@@ -12,6 +18,9 @@
       <button class="navigation--tab cursor-pointer selected">랭킹</button>
       <button class="navigation--tab cursor-pointer">주간 기록</button>
     </aside>
-    <InformationIcon class="navigation__etc cursor-pointer" />
+    <article class="flex align-center">
+      <RegisterIcon class="navigation__etc cursor-pointer" />
+      <InformationIcon class="navigation__etc cursor-pointer" />
+    </article>
   </main>
 </div>
