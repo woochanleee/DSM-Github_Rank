@@ -6,7 +6,7 @@
 </style>
 
 <header class="header">
-  <main class="header__main layout">
+  <main class="layout flex align-center">
     <h1 class="header__title">DSMGR</h1>
     <div class="header__main__detail">
       <p class="header__main--sub-title">DSM Github Ranking</p>
