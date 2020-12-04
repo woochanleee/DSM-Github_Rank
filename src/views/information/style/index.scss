@@ -1,0 +1,9 @@
+@import '../../../utils/styles/theme.scss';
+
+.information {
+  &--text {
+    font-size: 1rem;
+    color: #837e7e;
+    padding: 0.7rem;
+  }
+}
