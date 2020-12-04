@@ -1,5 +1,18 @@
 <script lang="ts">
-  import { Header, Navigation } from '../pages';
+  import { onDestroy } from 'svelte';
+
+  import { Header, Navigation, Information } from '../views';
+
+  import { modal } from '../data';
+  import type { CurrentModal } from '../data/modal';
+
+  let currentModal: CurrentModal = '';
+
+  onDestroy(
+    modal.execute(function subscribe(value) {
+      currentModal = value;
+    })
+  );
 </script>
 
 <style lang="scss">
@@ -57,6 +70,13 @@
   :global(.cursor-pointer) {
     cursor: pointer;
   }
+
+  :global(code) {
+    background-color: #272822;
+    color: #f8f8f2;
+    border-radius: 0.3rem;
+    padding: 0.25rem;
+  }
 </style>
 
 <svelte:head>
@@ -65,3 +85,7 @@
 
 <Header />
 <Navigation />
+
+{#if currentModal === 'information'}
+  <Information />
+{/if}
