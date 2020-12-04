@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
 
-  import { Header, Navigation, Information } from '../views';
+  import { Header, Navigation, Information, Register } from '../views';
 
   import { modal } from '../data';
   import type { CurrentModal } from '../data/modal';
@@ -88,4 +88,6 @@
 
 {#if currentModal === 'information'}
   <Information />
+{:else if currentModal === 'register'}
+  <Register />
 {/if}
