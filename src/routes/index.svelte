@@ -8,10 +8,13 @@
     box-sizing: border-box;
   }
 
+  :global(html) {
+    font-size: 14px;
+  }
+
   :global(body) {
     margin: 0;
     padding: 0;
-    font-size: 14px;
   }
 
   :global(img) {
