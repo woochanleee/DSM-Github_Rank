@@ -1,0 +1,48 @@
+@import '../../../utils/styles/theme.scss';
+
+.register {
+  @include mobile-modal;
+
+  width: 350px;
+
+  &__email {
+    width: 100%;
+  }
+
+  &--input {
+    flex: 1;
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #808080;
+    outline: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 0;
+  }
+
+  @mixin button {
+    padding: 5px 10px;
+    border: 1px solid $main-color;
+    border-radius: 3px;
+    background-color: $main-color;
+    color: #ffffff;
+    margin-bottom: 10px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  &--send-email {
+    @include button;
+
+    width: 60px;
+    margin-left: 10px;
+  }
+
+  &--submit {
+    @include button;
+
+    width: 60px;
+  }
+}
