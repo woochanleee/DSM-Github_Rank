@@ -10,6 +10,7 @@
     "validate": "svelte-check --ignore src/node_modules/@sapper"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "compression": "^1.7.1",
     "polka": "next",
     "sirv": "^1.0.0"
@@ -27,6 +28,7 @@
     "@rollup/plugin-typescript": "^6.1.0",
     "@rollup/plugin-url": "^5.0.0",
     "@tsconfig/svelte": "^1.0.10",
+    "@types/axios": "^0.14.0",
     "@types/compression": "^1.7.0",
     "@types/node": "^14.11.1",
     "@types/polka": "^0.5.1",
