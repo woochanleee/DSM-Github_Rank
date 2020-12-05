@@ -1,9 +1,9 @@
 import Store from '../store';
 import type { ApiState, MutableValue } from '../types';
 
-type RegisterState = ApiState<any>;
+type RegisterState = ApiState<string>;
 
-type SendAuthCodeState = ApiState<any>;
+type SendAuthCodeState = ApiState<string>;
 
 export type InitialState = {
   register: Readonly<RegisterState>;
