@@ -14,9 +14,12 @@
     left: 50%;
     background: #ffffff;
     border-radius: 3px;
-    padding: 60px 80px;
-    white-space: nowrap;
+    padding: 4.2rem 5.7rem;
     transform: translate(-50%, -50%);
+    
+    @media (max-width: $mobile-width) {
+      width: 100%;
+    }
   }
 
   &--title {
