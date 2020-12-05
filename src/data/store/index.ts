@@ -9,7 +9,7 @@ import type {
 } from '../types';
 
 export default class Store<T> {
-  private initialState: T;
+  private readonly initialState: T;
 
   protected subscribe: (
     run: Subscriber<T>,
@@ -30,8 +30,14 @@ export default class Store<T> {
     this.update = update;
   }
 
-  public execute(callbackFunction: (value: T) => void): Unsubscriber {
+  public run(callbackFunction: (value: T) => void): Unsubscriber {
     return this.subscribe(callbackFunction);
+  }
+
+  public getStore() {
+    return {
+      subscribe: this.subscribe,
+    };
   }
 
   public reset(): void {
