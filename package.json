@@ -1,6 +1,6 @@
 {
-  "name": "DSM-Github_Ranking",
-  "description": "DSM gituhb ranking service by contributions.",
+  "name": "DSM-Github_Rank",
+  "description": "DSM gituhb rank service by contributions.",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
