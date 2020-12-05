@@ -16,6 +16,8 @@
 </script>
 
 <style lang="scss">
+@import '../utils/styles/theme.scss';
+
   :global(*) {
     font-family: 'Noto Sans KR', sans-serif;
     box-sizing: border-box;
@@ -23,6 +25,10 @@
 
   :global(html) {
     font-size: 14px;
+
+    @media (max-width: $mobile-width) {
+      font-size: 12px;
+    }
   }
 
   :global(body) {
