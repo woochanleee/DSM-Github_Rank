@@ -1,7 +1,10 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
-    "lib": ["DOM", "ES2017", "WebWorker"]
+    "lib": ["DOM", "ES2017", "WebWorker"],
+    "isolatedModules": true,
+    "target": "ES6",
+    "experimentalDecorators": true
   },
   "include": ["src/**/*", "src/node_modules/**/*"],
   "exclude": ["node_modules/*", "__sapper__/*", "static/*"]
