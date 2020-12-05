@@ -7,6 +7,7 @@
     '로그인 후 본인의 Github ID 등록에 성공하면 리스트에 표시됩니다.',
     '비공개 저장소를 기여도로 표시하면 모든 기여도를 확인할 수 있습니다.(Github설정)',
     '데이터는 12시간 마다 동기화 됩니다.',
+    '만약 잘못된 정보로 기입시 관리자가 임의로 삭제할 수 있습니다',
     '사용자 정보 수정 및 삭제는 <a href="https://github.com/woochanleee" target="_blank">제작자</a>로 요청해주세요.',
     '자세한 사항은 <a href="https://github.com/woochanleee/DSM-Github_Ranking/README.md" target="_blank">이곳</a>을 참고해주세요.',
   ];
