@@ -1,22 +1,13 @@
 <script lang="ts">
-  import { onDestroy } from 'svelte';
+  import { Header, Navigation, Information, Register, Spinner } from '../views';
 
-  import { Header, Navigation, Information, Register } from '../views';
+  import { modal, loading } from '../data';
 
-  import { modal } from '../data';
-  import type { CurrentModal } from '../data/modal';
-
-  let currentModal: CurrentModal = '';
-
-  onDestroy(
-    modal.execute(function subscribe(value) {
-      currentModal = value;
-    })
-  );
+  let currentModal = modal.getStore();
 </script>
 
 <style lang="scss">
-@import '../utils/styles/theme.scss';
+  @import '../utils/styles/theme.scss';
 
   :global(*) {
     font-family: 'Noto Sans KR', sans-serif;
@@ -92,8 +83,12 @@
 <Header />
 <Navigation />
 
-{#if currentModal === 'information'}
+{#if $currentModal === 'information'}
   <Information />
-{:else if currentModal === 'register'}
+{:else if $currentModal === 'register'}
   <Register />
+{/if}
+
+{#if $loading}
+  <Spinner />
 {/if}
