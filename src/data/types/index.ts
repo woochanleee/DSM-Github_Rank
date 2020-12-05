@@ -11,3 +11,10 @@ export interface ApiState<T> {
   message: string;
   data: T;
 }
+
+export interface MutableValue<T> {
+  isLoading?: boolean;
+  status?: number;
+  message?: string;
+  data?: T;
+}
