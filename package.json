@@ -6,7 +6,7 @@
     "dev": "sapper dev",
     "build": "sapper build --legacy",
     "export": "sapper export --legacy",
-    "start": "node __sapper__/build --port 80",
+    "start": "node __sapper__/build PORT=80",
     "validate": "svelte-check --ignore src/node_modules/@sapper"
   },
   "dependencies": {
