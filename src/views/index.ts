@@ -4,5 +4,6 @@ import Information from './information/index.svelte';
 import Register from './register/index.svelte';
 import Rank from './rank/index.svelte';
 import Spinner from './spinner/index.svelte';
+import Login from './login/index.svelte';
 
-export { Header, Navigation, Information, Register, Rank, Spinner };
+export { Header, Navigation, Information, Register, Rank, Spinner, Login };
