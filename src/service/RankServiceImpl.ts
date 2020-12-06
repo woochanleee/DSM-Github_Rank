@@ -46,8 +46,8 @@ class RankServiceImpl implements RankService {
       const _error: AxiosError = error;
 
       this.rank.changeRankState({
-        status: _error.response.status,
-        message: _error.response.statusText,
+        status: _error.response?.status,
+        message: _error.response?.statusText,
       });
       this.rank.changeRankState({ isLoading: false });
     }
