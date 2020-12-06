@@ -22,6 +22,13 @@
     public execute() {
       const index = Validation.validate(email);
 
+      if (SendAuthCodeController.isValid) {
+        alert(
+          '이미 인증코드를 전송하였습니다. 모달을 닫은 후 다시 시도해 주세요.'
+        );
+        return;
+      }
+
       if (~index) {
         inputEmptyAlert(index);
         return;
@@ -152,7 +159,7 @@
       bind:value={name}
       class="register--input"
       type="text"
-      placeholder="이름" />
+      placeholder="실명" />
     <input
       bind:value={password}
       class="register--input"
