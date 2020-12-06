@@ -1,6 +1,8 @@
 @import '../../../utils/styles/theme.scss';
 
 .login {
+  @include mobile-modal;
+
   width: 350px;
 
   &--input {
