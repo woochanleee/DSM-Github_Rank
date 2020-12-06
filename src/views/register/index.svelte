@@ -79,7 +79,7 @@
   }
 
   const sendAuthCodeController = new SendAuthCodeController();
-  const register = new RegisterController();
+  const registerController = new RegisterController();
 
   $: {
     const { isLoading, status } = $userStore.sendAuthCode || {};
@@ -99,6 +99,8 @@
           case Math.floor(status / 100) === 4 ? status : 0:
             alert('인증코드 발송에 실패하였습니다.');
             break;
+          case 500:
+            alert('NetworkError or ServerError');
           default:
         }
       }
@@ -118,6 +120,9 @@
             break;
           case 404:
             alert('인증코드가 일치하지 않습니다.');
+            break;
+          case 500:
+            alert('NetworkError or ServerError');
           default:
         }
       }
@@ -170,6 +175,8 @@
       class="register--input"
       type="password"
       placeholder="비밀번호 재확인" />
-    <button class="register--submit" on:click={register.excute}>가입</button>
+    <button
+      class="register--submit"
+      on:click={registerController.excute}>가입</button>
   </div>
 </Modal>
