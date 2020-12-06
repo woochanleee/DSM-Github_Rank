@@ -39,8 +39,6 @@ class UserSerivceImpl implements UserService {
       this.user.changeRegisterState({ isLoading: false });
     } catch (error) {
       const _error: AxiosError = error;
-      console.log(_error);
-      console.log(_error.response);
       this.user.changeRegisterState({
         status: _error.response.status,
         message: _error.response.statusText,
@@ -62,8 +60,6 @@ class UserSerivceImpl implements UserService {
       this.user.changeSendAuthCodeState({ isLoading: false });
     } catch (error) {
       const _error: AxiosError = error;
-      console.log(_error);
-      console.log(_error.response);
       this.user.changeSendAuthCodeState({
         status: _error.response.status,
         message: _error.response.statusText,
