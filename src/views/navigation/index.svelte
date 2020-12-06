@@ -9,6 +9,8 @@
   } from '../../utils/icons';
 
   const userStore = user.getStore();
+
+  $: hasAccessToken = $userStore.auth?.data?.accessToken;
 </script>
 
 <style lang="scss">
@@ -27,7 +29,7 @@
     <button class="navigation--tab cursor-pointer">-</button>
   </aside>
   <article class="flex align-center">
-    {#if $userStore.auth?.data?.accessToken}
+    {#if hasAccessToken}
       <LogoutIcon class="navigation__etc cursor-pointer" />
     {:else}
       <LoginIcon class="navigation__etc cursor-pointer" />
