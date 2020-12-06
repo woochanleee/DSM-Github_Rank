@@ -17,6 +17,8 @@
     return '';
   }
 
+  $: rankStatus = $rankStore.rank?.status;
+
   $: {
     const { status } = $rankStore.rank || {};
 
@@ -60,7 +62,7 @@
       <th>소개</th>
     </thead>
     <tbody>
-      {#if $rankStore.rank?.status === 200}
+      {#if rankStatus === 200}
         {#each $rankStore.rank.data.rank as { githubImage, githubId, name, contributions, description }, index}
           <tr on:click={onClickGithubProfile}>
             <td class="rank--sequence">{index + 1}</td>
