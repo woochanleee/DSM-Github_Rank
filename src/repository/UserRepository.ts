@@ -17,5 +17,11 @@ export default interface UserRepository {
     password: string
   ): Promise<AxiosResponse<AuthResponse>>;
 
-  requesetGetMyAccount(): Promise<AxiosResponse<UserResponse>>;
+  requesetGetMyInfo(): Promise<AxiosResponse<UserResponse>>;
+
+  requesetChangeInfo(
+    name: string,
+    githubId: string,
+    description: string
+  ): Promise<AxiosResponse<string>>;
 }
