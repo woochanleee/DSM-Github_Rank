@@ -5,6 +5,7 @@ import type { UserService } from './';
 import { User, user } from '../data';
 import { AuthRequest, AuthResponse, RegisterRequest } from '../dto';
 import { UserRepository, userRepositoryImpl } from '../repository';
+import UserResponse from '../dto/GetUserResponse';
 
 class UserSerivceImpl implements UserService {
   private readonly user: User = user;
@@ -86,6 +87,43 @@ class UserSerivceImpl implements UserService {
         message: _error.response?.statusText,
       });
       this.user.changeAuthState({ isLoading: false });
+    }
+  }
+
+  public async getMyAccount(): Promise<void> {
+    this.user.changeMyAccountState({ isLoading: true });
+    try {
+      const {
+        data: {
+          email,
+          githubId,
+          githubImage,
+          name,
+          description,
+          contributions,
+        },
+        status,
+      } = await this.userReposictory.requesetGetMyAccount();
+
+      this.user.changeMyAccountState({
+        data: UserResponse.builder()
+          .setEmail(email)
+          .setGithubId(githubId)
+          .setGithubImage(githubImage)
+          .setName(name)
+          .setDescription(description)
+          .setContributions(contributions),
+        status,
+      });
+      this.user.changeMyAccountState({ isLoading: false });
+    } catch (error) {
+      const _error: AxiosError = error;
+
+      this.user.changeMyAccountState({
+        status: _error.response?.status,
+        message: _error.response?.statusText,
+      });
+      this.user.changeMyAccountState({ isLoading: false });
     }
   }
 }
