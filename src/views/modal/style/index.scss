@@ -16,9 +16,13 @@
     border-radius: 3px;
     padding: 4.2rem 5.7rem;
     transform: translate(-50%, -50%);
-    
+
     @media (max-width: $mobile-width) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       width: 100%;
+      padding: 1rem;
     }
   }
 
