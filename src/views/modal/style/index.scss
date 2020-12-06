@@ -24,6 +24,12 @@
       width: 100%;
       padding: 1rem;
     }
+
+    @media (max-height: $mobile-height) {
+      padding: 1rem;
+      max-height: 90%;
+      overflow-y: auto;
+    }
   }
 
   &--title {
