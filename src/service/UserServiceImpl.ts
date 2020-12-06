@@ -1,22 +1,15 @@
 import type { AxiosError } from 'axios';
 
 import type { UserService } from './';
-import type {
-  RegisterUserUseCase,
-  SendAuthCodeUseCase,
-} from '../domain/usecase';
-import {
-  registerUserUseCaseImpl,
-  sendAuthCodeUseCaseImpl,
-} from '../domain/usecase';
-import { user } from '../data';
+
+import { User, user } from '../data';
 import type { RegisterRequest } from '../dto';
+import { UserRepository, userRepositoryImpl } from '../repository';
 
 class UserSerivceImpl implements UserService {
-  private readonly user = user;
+  private readonly user: User = user;
 
-  private readonly registerUserUseCaseImpl: RegisterUserUseCase = registerUserUseCaseImpl;
-  private readonly sendAuthCodeUseCaseImpl: SendAuthCodeUseCase = sendAuthCodeUseCaseImpl;
+  private readonly userReposictory: UserRepository = userRepositoryImpl;
 
   public async register({
     authCode,
@@ -26,12 +19,13 @@ class UserSerivceImpl implements UserService {
   }: RegisterRequest) {
     this.user.changeRegisterState({ isLoading: true });
     try {
-      const { data, status } = await this.registerUserUseCaseImpl.execute(
+      const { data, status } = await this.userReposictory.requestRegisterUser(
         authCode,
         password,
         githubId,
         name
       );
+
       this.user.changeRegisterState({
         data,
         status,
@@ -39,6 +33,7 @@ class UserSerivceImpl implements UserService {
       this.user.changeRegisterState({ isLoading: false });
     } catch (error) {
       const _error: AxiosError = error;
+
       this.user.changeRegisterState({
         status: _error.response.status,
         message: _error.response.statusText,
@@ -50,9 +45,10 @@ class UserSerivceImpl implements UserService {
   public async sendAuthCode(email: string) {
     this.user.changeSendAuthCodeState({ isLoading: true });
     try {
-      const { data, status } = await this.sendAuthCodeUseCaseImpl.execute(
+      const { data, status } = await this.userReposictory.requestSendAuthCode(
         email
       );
+
       this.user.changeSendAuthCodeState({
         data,
         status,
@@ -60,6 +56,7 @@ class UserSerivceImpl implements UserService {
       this.user.changeSendAuthCodeState({ isLoading: false });
     } catch (error) {
       const _error: AxiosError = error;
+
       this.user.changeSendAuthCodeState({
         status: _error.response.status,
         message: _error.response.statusText,
