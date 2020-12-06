@@ -27,6 +27,7 @@
     Spinner,
     Rank,
     Login,
+    Setting,
   } from '../views';
 
   import { modal, loading, user } from '../data';
@@ -122,6 +123,8 @@
   <Register />
 {:else if $currentModal === 'login'}
   <Login />
+{:else if $currentModal === 'setting'}
+  <Setting />
 {/if}
 
 {#if $loading}
