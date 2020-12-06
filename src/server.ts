@@ -3,8 +3,9 @@ import polka from 'polka';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
 
-const { PORT, NODE_ENV } = process.env;
+const { NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
+const POST = 80
 
 polka() // You can also use Express
   .use(
@@ -12,6 +13,6 @@ polka() // You can also use Express
     sirv('static', { dev }),
     sapper.middleware()
   )
-  .listen(PORT, (err) => {
+  .listen(POST, (err) => {
     if (err) console.log('error', err);
   });
