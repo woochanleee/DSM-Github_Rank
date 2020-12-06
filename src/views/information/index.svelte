@@ -9,7 +9,8 @@
     '데이터는 12시간 마다 동기화 됩니다.',
     '만약 잘못된 정보로 기입시 관리자가 임의로 삭제할 수 있습니다',
     '사용자 정보 수정 및 삭제는 <a href="https://github.com/woochanleee" target="_blank">제작자</a>로 요청해주세요.',
-    '자세한 사항은 <a href="https://github.com/woochanleee/DSM-Github_Ranking/README.md" target="_blank">이곳</a>을 참고해주세요.',
+    '자세한 사항은 <a href="https://github.com/DSMGR" target="_blank">이곳</a>을 참고해주세요.',
+    '버그 제보 및 문의사항은 <a href="https://github.com/DSMGR/suggestion" target="_blank">이슈 저장소</a>를 이용해주세요.',
   ];
 </script>
 
