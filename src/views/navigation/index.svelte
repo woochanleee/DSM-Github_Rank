@@ -30,13 +30,13 @@
     <button class="navigation--tab cursor-pointer">-</button>
   </aside>
   <article class="flex align-center">
-    <SettingIcon class="navigation__etc cursor-pointer" />
     {#if hasAccessToken}
+      <SettingIcon class="navigation__etc cursor-pointer" />
       <LogoutIcon class="navigation__etc cursor-pointer" />
     {:else}
       <LoginIcon class="navigation__etc cursor-pointer" />
+      <RegisterIcon class="navigation__etc cursor-pointer" />
     {/if}
-    <RegisterIcon class="navigation__etc cursor-pointer" />
     <InformationIcon class="navigation__etc cursor-pointer" />
   </article>
 </div>
