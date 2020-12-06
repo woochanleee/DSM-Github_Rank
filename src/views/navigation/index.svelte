@@ -26,8 +26,8 @@
 
 <div class="navigation flex justify-space_between">
   <aside class="navigation__option flex">
-    <button class="navigation--tab cursor-pointer selected">랭킹</button>
-    <button class="navigation--tab cursor-pointer">-</button>
+    <button class="navigation--tab selected">랭킹</button>
+    <button class="navigation--tab">-</button>
   </aside>
   <article class="flex align-center">
     {#if hasAccessToken}
