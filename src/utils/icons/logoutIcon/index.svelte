@@ -2,8 +2,10 @@
   import { user } from '../../../data';
 
   function onClickLogout() {
-    localStorage.setItem('accessToken', '');
-    user.reset();
+    if (confirm('로그아웃 하시겠습니까?')) {
+      localStorage.setItem('accessToken', '');
+      user.reset();
+    }
   }
 </script>
 
