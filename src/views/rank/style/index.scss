@@ -1,0 +1,95 @@
+@import '../../../utils/styles/theme.scss';
+
+@mixin light-gray-font {
+  color: #a0a0a0;
+}
+
+@mixin impact-gray-font {
+  color: gray;
+  font-weight: 700;
+}
+
+.rank {
+  overflow-x: scroll;
+  white-space: nowrap;
+  margin-bottom: 3.57rem;
+
+  @media (max-width: $mobile-width) {
+    th,
+    td {
+      padding: 4px;
+    }
+  }
+
+  th {
+    color: $main-color;
+    font-weight: 700;
+  }
+
+  > table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      font-size: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #e2e2e2;
+
+      &:nth-child(3),
+      &:nth-child(6) {
+        text-align: left;
+      }
+    }
+
+    th {
+      padding: 2.14rem 1rem;
+    }
+
+    td {
+      padding: 0.7rem 1rem;
+    }
+
+    tr {
+      cursor: pointer;
+      &:hover {
+        background-color: #fafafa;
+      }
+    }
+  }
+
+  &--sequence {
+    @include light-gray-font;
+  }
+
+  &--profile-image > img {
+    width: 5.7rem;
+    height: 5.7rem;
+    border-radius: 50%;
+  }
+
+  &--profile-image {
+    @include light-gray-font;
+  }
+
+  &--name {
+    @include impact-gray-font;
+
+    > div {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &--github-id {
+    @include light-gray-font;
+  }
+
+  &--contributions {
+    @include impact-gray-font;
+  }
+
+  &--description {
+    @include light-gray-font;
+  }
+}
