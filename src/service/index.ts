@@ -1,5 +1,8 @@
 import type UserService from './UserService';
 import userServiceImpl from './UserServiceImpl';
 
-export type { UserService };
-export { userServiceImpl };
+import type RankService from './RankService';
+import rankServiceImpl from './RankServiceImpl';
+
+export type { UserService, RankService };
+export { userServiceImpl, rankServiceImpl };
