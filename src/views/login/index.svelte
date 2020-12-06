@@ -52,6 +52,7 @@
         switch (status) {
           case 200:
             localStorage.setItem('accessToken', accessToken);
+            userServiceImpl.getMyAccount();
             modal.reset();
             break;
           case 403:
