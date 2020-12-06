@@ -6,6 +6,7 @@
     LoginIcon,
     LogoutIcon,
     RegisterIcon,
+    SettingIcon,
   } from '../../utils/icons';
 
   const userStore = user.getStore();
@@ -29,6 +30,7 @@
     <button class="navigation--tab cursor-pointer">-</button>
   </aside>
   <article class="flex align-center">
+    <SettingIcon class="navigation__etc cursor-pointer" />
     {#if hasAccessToken}
       <LogoutIcon class="navigation__etc cursor-pointer" />
     {:else}
