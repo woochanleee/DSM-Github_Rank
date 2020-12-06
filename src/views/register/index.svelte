@@ -44,7 +44,7 @@
   }
 
   class RegisterController extends Validation {
-    public excute() {
+    public execute() {
       if (!SendAuthCodeController.isValid) {
         alert('이메일 인증 후 시도해 주세요.');
         return;
@@ -55,7 +55,7 @@
         2: 3,
         3: 4,
       };
-      const index = Validation.validate(authCode, githubId, name, password);
+      const index = Validation.validate(authCode, name, githubId, password);
 
       if (~index) {
         inputEmptyAlert(InputSequence[index]);
@@ -156,15 +156,16 @@
       type="text"
       placeholder="인증코드" />
     <input
+      bind:value={name}
+      class="register--input"
+      type="text"
+      placeholder="이름(실명)" />
+    <input
       bind:value={githubId}
       class="register--input"
       type="text"
       placeholder="Github ID" />
-    <input
-      bind:value={name}
-      class="register--input"
-      type="text"
-      placeholder="실명" />
+
     <input
       bind:value={password}
       class="register--input"
@@ -177,6 +178,6 @@
       placeholder="비밀번호 재확인" />
     <button
       class="register--submit"
-      on:click={registerController.excute}>가입</button>
+      on:click={registerController.execute}>가입</button>
   </div>
 </Modal>
