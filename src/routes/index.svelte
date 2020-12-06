@@ -1,5 +1,20 @@
+<script context="module" lang="ts">
+  import { rankServiceImpl } from '../service';
+
+  export async function preload() {
+    await rankServiceImpl.getRank();
+  }
+</script>
+
 <script lang="ts">
-  import { Header, Navigation, Information, Register, Spinner } from '../views';
+  import {
+    Header,
+    Navigation,
+    Information,
+    Register,
+    Spinner,
+    Rank,
+  } from '../views';
 
   import { modal, loading } from '../data';
 
@@ -81,7 +96,11 @@
 </svelte:head>
 
 <Header />
-<Navigation />
+
+<div class="layout">
+  <Navigation />
+  <Rank />
+</div>
 
 {#if $currentModal === 'information'}
   <Information />
