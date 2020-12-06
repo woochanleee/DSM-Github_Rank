@@ -16,6 +16,21 @@
     }
     return '';
   }
+
+  $: {
+    const { status } = $rankStore.rank || {};
+
+    switch (status) {
+      case 200:
+        break;
+      case Math.floor(status / 100) === 4 ? status : 0:
+        if (process.browser) {
+          alert('순위를 불러오는데 실패하였습니다.');
+        }
+        break;
+      default:
+    }
+  }
 </script>
 
 <style lang="scss">
@@ -41,23 +56,25 @@
       <th>소개</th>
     </thead>
     <tbody>
-      {#each $rankStore.rank.data.rank as { githubImage, githubId, name, contributions, description }, index}
-        <tr on:click={onClickGithubProfile}>
-          <td class="rank--sequence">{index + 1}</td>
-          <td class="rank--profile-image">
-            <img src={githubImage} alt={`${name} 프로필 사진`} />
-          </td>
-          <td class="rank--name">
-            <div>
-              {name}
-              {@html getMedal(index)}
-            </div>
-          </td>
-          <td class="rank--github-id">{githubId}</td>
-          <td class="rank--contributions">{contributions}</td>
-          <td class="rank--description">{description ? description : '-'}</td>
-        </tr>
-      {/each}
+      {#if $rankStore.rank.status === 200}
+        {#each $rankStore.rank.data.rank as { githubImage, githubId, name, contributions, description }, index}
+          <tr on:click={onClickGithubProfile}>
+            <td class="rank--sequence">{index + 1}</td>
+            <td class="rank--profile-image">
+              <img src={githubImage} alt={`${name} 프로필 사진`} />
+            </td>
+            <td class="rank--name">
+              <div>
+                {name}
+                {@html getMedal(index)}
+              </div>
+            </td>
+            <td class="rank--github-id">{githubId}</td>
+            <td class="rank--contributions">{contributions}</td>
+            <td class="rank--description">{description ? description : '-'}</td>
+          </tr>
+        {/each}
+      {/if}
     </tbody>
   </table>
 </div>
