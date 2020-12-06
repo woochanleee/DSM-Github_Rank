@@ -2,7 +2,7 @@
   import Modal from '../modal/index.svelte';
 
   import { user, loading, modal } from '../../data';
-  import { userServiceImpl } from '../../service';
+  import { userServiceImpl, rankServiceImpl } from '../../service';
   import { Validation } from '../../utils/classes';
   import { inputEmptyAlert } from '../../utils/functions';
   import { onDestroy } from 'svelte';
@@ -45,6 +45,7 @@
         loading.set(false);
         switch (status) {
           case 200:
+            rankServiceImpl.getRank();
             modal.reset();
             break;
           case Math.floor(status / 100) === 4 ? status : 0:
