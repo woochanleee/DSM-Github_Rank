@@ -1,5 +1,14 @@
 <script lang="ts">
-  import { InformationIcon, RegisterIcon } from '../../utils/icons';
+  import { user } from '../../data';
+
+  import {
+    InformationIcon,
+    LoginIcon,
+    LogoutIcon,
+    RegisterIcon,
+  } from '../../utils/icons';
+
+  const userStore = user.getStore();
 </script>
 
 <style lang="scss">
@@ -18,6 +27,11 @@
     <button class="navigation--tab cursor-pointer">-</button>
   </aside>
   <article class="flex align-center">
+    {#if $userStore.auth?.data?.accessToken}
+      <LogoutIcon class="navigation__etc cursor-pointer" />
+    {:else}
+      <LoginIcon class="navigation__etc cursor-pointer" />
+    {/if}
     <RegisterIcon class="navigation__etc cursor-pointer" />
     <InformationIcon class="navigation__etc cursor-pointer" />
   </article>
