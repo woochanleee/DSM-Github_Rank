@@ -24,10 +24,14 @@
 
   &--send-email {
     @include button;
+
     margin-left: 10px;
+    margin-bottom: 10px;
   }
 
   &--submit {
     @include button;
+
+    margin-top: 10px;
   }
 }
