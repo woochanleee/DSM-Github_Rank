@@ -1,26 +1,50 @@
 import type { AxiosError } from 'axios';
-
-import type { GetRankUseCase } from '../domain/usecase';
-import type { RankService } from './';
-import { getRankUseCaseImpl } from '../domain/usecase';
-import { rank } from '../data';
+import type { RankService } from '.';
+import { Rank, rank } from '../data';
+import { GetRankResponse, GetUserResponse } from '../dto';
+import { rankRepositoryImpl } from '../repository';
+import type RankReposiotry from '../repository/RankRepository';
 
 class RankServiceImpl implements RankService {
-  private readonly rank = rank;
+  private rank: Rank = rank;
 
-  private readonly getRankUseCaseImpl: GetRankUseCase = getRankUseCaseImpl;
+  private readonly rankRepository: RankReposiotry = rankRepositoryImpl;
 
   public async getRank() {
     this.rank.changeRankState({ isLoading: true });
     try {
-      const { data, status } = await this.getRankUseCaseImpl.execute();
+      const {
+        data: { rank },
+        status,
+      } = await this.rankRepository.requestGetRank();
+
       this.rank.changeRankState({
-        data,
+        data: GetRankResponse.builder().setRank(
+          rank.map(
+            ({
+              email,
+              githubId,
+              githubImage,
+              name,
+              description,
+              contributions,
+            }) => {
+              return GetUserResponse.builder()
+                .setEmail(email)
+                .setGithubId(githubId)
+                .setGithubImage(githubImage)
+                .setName(name)
+                .setDescription(description)
+                .setContributions(contributions);
+            }
+          )
+        ),
         status,
       });
       this.rank.changeRankState({ isLoading: false });
     } catch (error) {
       const _error: AxiosError = error;
+
       this.rank.changeRankState({
         status: _error.response.status,
         message: _error.response.statusText,
