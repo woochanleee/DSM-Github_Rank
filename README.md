@@ -1,6 +1,6 @@
-# DSM-Github_Ranking
+# DSM-Github_Rank
 
-DSM gituhb ranking service by contributions.
+DSM gituhb rank service by contributions.
 
 ## Project
 
