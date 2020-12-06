@@ -6,6 +6,7 @@ import { User, user } from '../data';
 import { AuthRequest, AuthResponse, RegisterRequest } from '../dto';
 import { UserRepository, userRepositoryImpl } from '../repository';
 import UserResponse from '../dto/GetUserResponse';
+import type ChangeInfoRequest from '../dto/ChangeInfoRequest';
 
 class UserSerivceImpl implements UserService {
   private readonly user: User = user;
@@ -103,7 +104,7 @@ class UserSerivceImpl implements UserService {
           contributions,
         },
         status,
-      } = await this.userReposictory.requesetGetMyAccount();
+      } = await this.userReposictory.requesetGetMyInfo();
 
       this.user.changeMyAccountState({
         data: UserResponse.builder()
@@ -124,6 +125,35 @@ class UserSerivceImpl implements UserService {
         message: _error.response?.statusText,
       });
       this.user.changeMyAccountState({ isLoading: false });
+    }
+  }
+
+  public async changeInfo({
+    name,
+    description,
+    githubId,
+  }: ChangeInfoRequest): Promise<void> {
+    this.user.changeChangeInfoState({ isLoading: true });
+    try {
+      const { data, status } = await this.userReposictory.requesetChangeInfo(
+        name,
+        githubId,
+        description
+      );
+
+      this.user.changeChangeInfoState({
+        data,
+        status,
+      });
+      this.user.changeChangeInfoState({ isLoading: false });
+    } catch (error) {
+      const _error: AxiosError = error;
+
+      this.user.changeChangeInfoState({
+        status: _error.response?.status,
+        message: _error.response?.statusText,
+      });
+      this.user.changeChangeInfoState({ isLoading: false });
     }
   }
 }
