@@ -47,11 +47,8 @@
           case 200:
             modal.reset();
             break;
-          case 409:
-            alert('이미 가입된 계정입니다.');
-            break;
           case Math.floor(status / 100) === 4 ? status : 0:
-            alert('인증코드 발송에 실패하였습니다.');
+            alert('정보 수정에 실패하였습니다.');
             break;
           case 500:
             alert('NetworkError or ServerError');
