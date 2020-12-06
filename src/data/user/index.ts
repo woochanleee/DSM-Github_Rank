@@ -1,4 +1,5 @@
 import type { AuthResponse } from '../../dto';
+import type UserResponse from '../../dto/GetUserResponse';
 import { stateChanger } from '../../utils/functions';
 import Store from '../store';
 import type { ApiState, MutableValue } from '../types';
@@ -9,16 +10,20 @@ type SendAuthCodeState = ApiState<string>;
 
 type AuthState = ApiState<AuthResponse>;
 
+type MyAccountState = ApiState<UserResponse>;
+
 export type InitialState = {
   register: Readonly<RegisterState>;
   sendAuthCode: Readonly<SendAuthCodeState>;
   auth: Readonly<AuthState>;
+  myAccount: Readonly<MyAccountState>;
 };
 
 const initialState: InitialState = {
   register: undefined,
   sendAuthCode: undefined,
   auth: undefined,
+  myAccount: undefined,
 };
 
 export class User extends Store<InitialState> {
@@ -36,6 +41,10 @@ export class User extends Store<InitialState> {
 
   public changeAuthState(value: MutableValue<AuthResponse>): void {
     stateChanger('auth').bind(this)(value);
+  }
+
+  public changeMyAccountState(value: MutableValue<UserResponse>): void {
+    stateChanger('myAccount').bind(this)(value);
   }
 }
 
