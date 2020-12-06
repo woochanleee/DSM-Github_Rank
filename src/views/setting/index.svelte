@@ -23,6 +23,11 @@
         return;
       }
 
+      if (description.length > 55) {
+        alert('소개란은 55자 이내로 작성해 주세요.');
+        return;
+      }
+
       userServiceImpl.changeInfo(
         ChangeInfoRequest.builder()
           .setName(name)
@@ -45,7 +50,9 @@
         loading.set(false);
         switch (status) {
           case 200:
-            rankServiceImpl.getRank();
+            rankServiceImpl.getRank().then(() => {
+              userServiceImpl.getMyAccount();
+            });
             modal.reset();
             break;
           case Math.floor(status / 100) === 4 ? status : 0:
@@ -88,7 +95,8 @@
       bind:value={description}
       class="setting--input"
       type="text"
-      placeholder="소개란" />
+      maxlength="55"
+      placeholder="소개란(55자 이내)" />
     <button
       class="setting--submit"
       on:click={settingController.execute}>수정</button>
