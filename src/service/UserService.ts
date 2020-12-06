@@ -6,4 +6,6 @@ export default interface UserSerivce {
   sendAuthCode(email: string): Promise<void>;
 
   login(request: AuthRequest): Promise<void>;
+
+  getMyAccount(): Promise<void>;
 }
