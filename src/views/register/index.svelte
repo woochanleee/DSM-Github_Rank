@@ -89,7 +89,7 @@
           case 409:
             alert('이미 가입된 계정입니다.');
             break;
-          case status / 100 === 4 ? status : 0:
+          case Math.floor(status / 100) === 4 ? status : 0:
             alert('인증코드 발송에 실패하였습니다.');
             break;
           default:
