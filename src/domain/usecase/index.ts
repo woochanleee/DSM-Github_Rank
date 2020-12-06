@@ -4,5 +4,8 @@ import registerUserUseCaseImpl from './RegisterUserUseCaseImpl';
 import type SendAuthCodeUseCase from './SendAuthCodeUseCase';
 import sendAuthCodeUseCaseImpl from './SendAuthCodeUseCaseImpl';
 
-export type { RegisterUserUseCase, SendAuthCodeUseCase };
-export { registerUserUseCaseImpl, sendAuthCodeUseCaseImpl };
+import type GetRankUseCase from './GetRankUseCase';
+import getRankUseCaseImpl from './GetRankUseCaseImpl';
+
+export type { RegisterUserUseCase, SendAuthCodeUseCase, GetRankUseCase };
+export { registerUserUseCaseImpl, sendAuthCodeUseCaseImpl, getRankUseCaseImpl };
