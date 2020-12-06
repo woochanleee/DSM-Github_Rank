@@ -1,5 +1,6 @@
 import type { AxiosResponse } from 'axios';
 import type { AuthResponse } from '../dto';
+import type UserResponse from '../dto/GetUserResponse';
 
 export default interface UserRepository {
   requestRegisterUser(
@@ -15,4 +16,6 @@ export default interface UserRepository {
     email: string,
     password: string
   ): Promise<AxiosResponse<AuthResponse>>;
+
+  requesetGetMyAccount(): Promise<AxiosResponse<UserResponse>>;
 }
