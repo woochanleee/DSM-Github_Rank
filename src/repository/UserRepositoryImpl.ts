@@ -1,5 +1,6 @@
 import type { AxiosInstance, AxiosResponse } from 'axios';
 import type { AuthResponse } from '../dto';
+import type UserResponse from '../dto/GetUserResponse';
 import { Axios } from '../utils/classes';
 
 import type UserRepository from './UserRepository';
@@ -43,6 +44,12 @@ class UserRepositoryImpl implements UserRepository {
       email,
       password,
     });
+  }
+
+  public async requesetGetMyAccount(): Promise<AxiosResponse<UserResponse>> {
+    Axios.setHeaderAuthorizationUsingLocalStorage();
+
+    return this.axios.get('/account/me');
   }
 }
 
