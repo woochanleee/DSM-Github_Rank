@@ -12,11 +12,14 @@ type AuthState = ApiState<AuthResponse>;
 
 type MyAccountState = ApiState<UserResponse>;
 
+type ChangeInfoState = ApiState<string>;
+
 export type InitialState = {
   register: Readonly<RegisterState>;
   sendAuthCode: Readonly<SendAuthCodeState>;
   auth: Readonly<AuthState>;
   myAccount: Readonly<MyAccountState>;
+  changeInfo: Readonly<ChangeInfoState>;
 };
 
 const initialState: InitialState = {
@@ -24,6 +27,7 @@ const initialState: InitialState = {
   sendAuthCode: undefined,
   auth: undefined,
   myAccount: undefined,
+  changeInfo: undefined,
 };
 
 export class User extends Store<InitialState> {
@@ -45,6 +49,10 @@ export class User extends Store<InitialState> {
 
   public changeMyAccountState(value: MutableValue<UserResponse>): void {
     stateChanger('myAccount').bind(this)(value);
+  }
+
+  public changeChangeInfoState(value: MutableValue<string>): void {
+    stateChanger('changeInfo').bind(this)(value);
   }
 }
 
