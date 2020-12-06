@@ -3,7 +3,7 @@ import type { AxiosError } from 'axios';
 import type { UserService } from './';
 
 import { User, user } from '../data';
-import type { RegisterRequest } from '../dto';
+import { AuthRequest, AuthResponse, RegisterRequest } from '../dto';
 import { UserRepository, userRepositoryImpl } from '../repository';
 
 class UserSerivceImpl implements UserService {
@@ -35,8 +35,8 @@ class UserSerivceImpl implements UserService {
       const _error: AxiosError = error;
 
       this.user.changeRegisterState({
-        status: _error.response.status,
-        message: _error.response.statusText,
+        status: _error.response?.status,
+        message: _error.response?.statusText,
       });
       this.user.changeRegisterState({ isLoading: false });
     }
@@ -58,10 +58,34 @@ class UserSerivceImpl implements UserService {
       const _error: AxiosError = error;
 
       this.user.changeSendAuthCodeState({
-        status: _error.response.status,
-        message: _error.response.statusText,
+        status: _error.response?.status,
+        message: _error.response?.statusText,
       });
       this.user.changeSendAuthCodeState({ isLoading: false });
+    }
+  }
+
+  public async login({ email, password }: AuthRequest): Promise<void> {
+    this.user.changeAuthState({ isLoading: true });
+    try {
+      const {
+        data: { accessToken },
+        status,
+      } = await this.userReposictory.requestAuth(email, password);
+
+      this.user.changeAuthState({
+        data: AuthResponse.builder().setAccessToken(accessToken).build(),
+        status,
+      });
+      this.user.changeAuthState({ isLoading: false });
+    } catch (error) {
+      const _error: AxiosError = error;
+
+      this.user.changeAuthState({
+        status: _error.response?.status,
+        message: _error.response?.statusText,
+      });
+      this.user.changeAuthState({ isLoading: false });
     }
   }
 }
