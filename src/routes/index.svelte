@@ -1,10 +1,12 @@
 <script context="module" lang="ts">
-  import { rankServiceImpl } from '../service';
+  import { rankServiceImpl, userServiceImpl } from '../service';
 
   export async function preload() {
     if (process.browser) {
       const accessToken: string = localStorage.getItem('accessToken');
       if (accessToken) {
+        await userServiceImpl.getMyAccount();
+
         user.changeAuthState({
           data: AuthResponse.builder().setAccessToken(accessToken).build(),
         });
