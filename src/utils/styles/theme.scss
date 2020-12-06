@@ -6,3 +6,14 @@ $mobile-width: 560px;
     width: 100%;
   }
 }
+@mixin button {
+  width: 60px;
+  padding: 5px 10px;
+  border: 1px solid $main-color;
+  border-radius: 3px;
+  background-color: $main-color;
+  color: #ffffff;
+  margin-bottom: 10px;
+  cursor: pointer;
+  outline: none;
+}
