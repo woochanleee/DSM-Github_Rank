@@ -15,8 +15,8 @@
 
   const userStore = user.getStore();
 
-  let email: string;
-  let password: string;
+  let email: string = '';
+  let password: string = '';
 
   class AuthController extends Validation {
     public execute() {
