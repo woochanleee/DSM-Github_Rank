@@ -1,4 +1,5 @@
 import type { AxiosResponse } from 'axios';
+import type { AuthResponse } from '../dto';
 
 export default interface UserRepository {
   requestRegisterUser(
@@ -9,4 +10,9 @@ export default interface UserRepository {
   ): Promise<AxiosResponse<string>>;
 
   requestSendAuthCode(email: string): Promise<AxiosResponse<string>>;
+
+  requestAuth(
+    email: string,
+    password: string
+  ): Promise<AxiosResponse<AuthResponse>>;
 }
