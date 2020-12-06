@@ -2,6 +2,16 @@
   import { rankServiceImpl } from '../service';
 
   export async function preload() {
+    if (process.browser) {
+      const accessToken: string = localStorage.getItem('accessToken');
+      if (accessToken) {
+        user.changeAuthState({
+          data: AuthResponse.builder().setAccessToken(accessToken).build(),
+        });
+      } else {
+        localStorage.setItem('accessToken', '');
+      }
+    }
     await rankServiceImpl.getRank();
   }
 </script>
@@ -14,9 +24,11 @@
     Register,
     Spinner,
     Rank,
+    Login,
   } from '../views';
 
-  import { modal, loading } from '../data';
+  import { modal, loading, user } from '../data';
+  import { AuthResponse } from '../dto';
 
   let currentModal = modal.getStore();
 </script>
@@ -106,6 +118,8 @@
   <Information />
 {:else if $currentModal === 'register'}
   <Register />
+{:else if $currentModal === 'login'}
+  <Login />
 {/if}
 
 {#if $loading}
