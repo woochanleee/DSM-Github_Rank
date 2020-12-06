@@ -1,4 +1,4 @@
-import axiosFacade from './AxiosFacade';
 import Validation from './Validation';
+import Axios from './Axios';
 
-export { axiosFacade, Validation };
+export { Validation, Axios };
