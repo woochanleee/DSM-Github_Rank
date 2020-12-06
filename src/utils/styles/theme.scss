@@ -1,11 +1,13 @@
 $main-color: #1775ad;
 $mobile-width: 560px;
+$mobile-height: 800px;
 
 @mixin mobile-modal {
   @media (max-width: $mobile-width) {
     width: 100%;
   }
 }
+
 @mixin button {
   width: 60px;
   padding: 5px 10px;
