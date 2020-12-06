@@ -1,15 +1,6 @@
 import Store from '../store';
 import type { ApiState, MutableValue } from '../types';
 
-export type UserResponse = {
-  email: string;
-  githubId: string;
-  githubImage: string;
-  name: string;
-  description: string;
-  contributions: number;
-};
-
 type RegisterState = ApiState<string>;
 
 type SendAuthCodeState = ApiState<string>;
@@ -24,7 +15,7 @@ const initialState: InitialState = {
   sendAuthCode: undefined,
 };
 
-class Uesr extends Store<InitialState> {
+export class User extends Store<InitialState> {
   constructor() {
     super(initialState);
   }
@@ -56,4 +47,4 @@ class Uesr extends Store<InitialState> {
   }
 }
 
-export default new Uesr();
+export default new User();
