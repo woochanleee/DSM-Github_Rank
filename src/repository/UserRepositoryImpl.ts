@@ -1,4 +1,5 @@
 import type { AxiosInstance, AxiosResponse } from 'axios';
+import type { AuthResponse } from '../dto';
 import { Axios } from '../utils/classes';
 
 import type UserRepository from './UserRepository';
@@ -29,6 +30,18 @@ class UserRepositoryImpl implements UserRepository {
       password,
       githubId,
       name,
+    });
+  }
+
+  public async requestAuth(
+    email: string,
+    password: string
+  ): Promise<AxiosResponse<AuthResponse>> {
+    Axios.changeContentType('application/json');
+
+    return this.axios.post('/auth', {
+      email,
+      password,
     });
   }
 }
