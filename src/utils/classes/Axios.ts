@@ -10,7 +10,7 @@ export default class Axios {
     if (!Axios.INSTANCE) {
       Axios.INSTANCE = axios.create({
         baseURL: 'http://52.79.253.30:5050',
-        timeout: 10000,
+        timeout: 100000,
       });
     }
 
