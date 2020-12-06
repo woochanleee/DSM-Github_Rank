@@ -20,7 +20,8 @@ export default class Axios {
   public static setHeaderAuthorizationUsingLocalStorage(): void {
     const accessToken: string = localStorage.getItem('accessToken');
     if (accessToken) {
-      Axios.INSTANCE.defaults.headers.common['Authorization'] = accessToken;
+      Axios.INSTANCE.defaults.headers.common['Authorization'] =
+        'Bearer ' + accessToken;
     }
   }
 
