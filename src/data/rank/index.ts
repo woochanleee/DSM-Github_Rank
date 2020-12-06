@@ -1,6 +1,7 @@
 import Store from '../store';
 import type { ApiState, MutableValue } from '../types';
 import type { GetRankResponse } from '../../dto';
+import { stateChanger } from '../../utils/functions';
 
 type RankState = ApiState<GetRankResponse>;
 
@@ -18,16 +19,7 @@ export class Rank extends Store<InitialState> {
   }
 
   public changeRankState(value: MutableValue<GetRankResponse>): void {
-    this.update((state: InitialState) => {
-      const { rank } = state;
-      return {
-        ...state,
-        rank: {
-          ...rank,
-          ...value,
-        },
-      };
-    });
+    stateChanger('rank').bind(this)(value);
   }
 }
 
