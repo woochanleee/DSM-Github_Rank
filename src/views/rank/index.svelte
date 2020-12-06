@@ -28,6 +28,10 @@
           alert('순위를 불러오는데 실패하였습니다.');
         }
         break;
+      case 500:
+        if (process.browser) {
+          alert('NetworkError or ServerError');
+        }
       default:
     }
   }
@@ -56,7 +60,7 @@
       <th>소개</th>
     </thead>
     <tbody>
-      {#if $rankStore.rank.status === 200}
+      {#if $rankStore.rank?.status === 200}
         {#each $rankStore.rank.data.rank as { githubImage, githubId, name, contributions, description }, index}
           <tr on:click={onClickGithubProfile}>
             <td class="rank--sequence">{index + 1}</td>
