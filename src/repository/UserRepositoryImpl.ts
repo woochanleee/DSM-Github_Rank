@@ -46,10 +46,24 @@ class UserRepositoryImpl implements UserRepository {
     });
   }
 
-  public async requesetGetMyAccount(): Promise<AxiosResponse<UserResponse>> {
+  public async requesetGetMyInfo(): Promise<AxiosResponse<UserResponse>> {
     Axios.setHeaderAuthorizationUsingLocalStorage();
 
     return this.axios.get('/account/me');
+  }
+
+  public async requesetChangeInfo(
+    name: string,
+    githubId: string,
+    description: string
+  ): Promise<AxiosResponse<string>> {
+    Axios.setHeaderAuthorizationUsingLocalStorage();
+
+    return this.axios.put('/account', {
+      name,
+      githubId,
+      description,
+    });
   }
 }
 
