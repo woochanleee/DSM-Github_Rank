@@ -31,7 +31,7 @@
 <div class="navigation flex justify-space_between">
   <aside class="navigation__option flex">
     <button class="navigation--tab selected">랭킹</button>
-    <button class="navigation--tab">{!myRank ? myRank + 1 : '-'}</button>
+    <button class="navigation--tab">{myRank > -1 ? myRank + 1 : '-'}</button>
   </aside>
   <article class="flex align-center">
     {#if hasAccessToken}
