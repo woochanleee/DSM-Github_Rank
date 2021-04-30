@@ -44,7 +44,7 @@ dsmgr은 대덕소프트웨어마이스터고등학교의 Github기여도를 표
 
 ![](./docs/images/technology.svg)
 
-[Sapper](https://github.com/sveltejs/sapper/blob/master/README.md), Scss, PostCSS, TypeScript를 사용하여 프론트엔드를 제작하였습니다
+[Sapper](https://github.com/sveltejs/sapper/blob/master/README.md), Scss, PostCSS, TypeScript를 사용하여 프론트엔드를 제작하였습니다.
 
 ## Project
 
