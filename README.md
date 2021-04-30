@@ -6,6 +6,27 @@ dsmgr은 대덕소프트웨어마이스터고등학교의 Github기여도를 표
 
 ⚠️ 학생의 동기부여 목적으로 제작되었습니다.
 
+## 스크린샷
+
+<details open>
+    <summary>순위를 볼 수 있는 메인 페이지 입니다.</summary>
+  
+![순위를 볼 수 있는 메인 페이지 입니다.](https://user-images.githubusercontent.com/48552260/116664414-66a1b780-a9d3-11eb-8392-dceb96f435ce.png)
+</details>
+
+<b>우측 중상단에 아이콘을 이용하여 로그인, 회원가입, 정보 수정, 서비스 소개 모달을 킬수 있고 로그아웃을 할 수 있습니다.</b>
+
+  <details open style="margin-left: 20px;">
+      <summary>비로그인 상태</summary>
+      <img width="200px" alt="비로그인 상태" src="https://user-images.githubusercontent.com/48552260/116672257-eed88a80-a9dc-11eb-90fe-f6a0582afd89.png" />
+  </details>
+  <details open>
+      <summary>로그인 상태</summary>
+      <img width="200px" alt="로그인 상태" src="https://user-images.githubusercontent.com/48552260/116672205-dff1d800-a9dc-11eb-9424-affc0d7a0e59.png" />
+  </details>
+
+
+
 ## 안내사항
 
 - 대덕소프트웨어마이스터고등학교 재학생 대상입니다.
@@ -21,7 +42,8 @@ dsmgr은 대덕소프트웨어마이스터고등학교의 Github기여도를 표
 
 ### 프론트엔드
 
-![](./docs/images/technology.svg)
+![](./docs/images/technology.svg)![Image 28@2x](https://user-images.githubusercontent.com/48552260/116671924-7eca0480-a9dc-11eb-962f-6db81f717360.png)
+
 [Sapper](https://github.com/sveltejs/sapper/blob/master/README.md), Scss, PostCSS, TypeScript를 사용하여 프론트엔드를 제작하였습니다
 
 ## Project
