@@ -42,7 +42,7 @@ dsmgr은 대덕소프트웨어마이스터고등학교의 Github기여도를 표
 
 ### 프론트엔드
 
-![](./docs/images/technology.svg)![Image 28@2x](https://user-images.githubusercontent.com/48552260/116671924-7eca0480-a9dc-11eb-962f-6db81f717360.png)
+![](./docs/images/technology.svg)
 
 [Sapper](https://github.com/sveltejs/sapper/blob/master/README.md), Scss, PostCSS, TypeScript를 사용하여 프론트엔드를 제작하였습니다
 
