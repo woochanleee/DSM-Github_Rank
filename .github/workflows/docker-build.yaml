@@ -16,7 +16,7 @@ jobs:
         run: docker build -t woochanlee/dsm-github-rank .
 
       - name: publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: woochanlee/dsm-github-rank
           username: ${{ secrets.DOCKER_USERNAME }}
